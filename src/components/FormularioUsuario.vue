@@ -38,17 +38,26 @@
 </template>
   
   <script>
-  export default {
-    data() {
-      return {
-        nombre: '',
-        apellido: '',
-        edad: '',
-        genero: '',
-        telefono: '',
-        errores: {}
-      }
-    },
+import { ref, reactive } from 'vue';
+
+export default {
+  setup() {
+    const nombre = ref('');
+    const apellido = ref('');
+    const edad = ref('');
+    const genero = ref('');
+    const telefono = ref('');
+    const errores = reactive({});
+
+    return {
+      nombre,
+      apellido,
+      edad,
+      genero,
+      telefono,
+      errores
+    }
+  },
     methods: {
       validarFormulario() {
         this.errores = {};
